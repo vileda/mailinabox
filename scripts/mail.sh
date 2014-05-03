@@ -210,7 +210,7 @@ tools/editconf.py /etc/dovecot/conf.d/10-ssl.conf \
 # Create a self-signed certifiate.
 mkdir -p $STORAGE_ROOT/ssl
 if [ ! -f $STORAGE_ROOT/ssl/ssl_certificate.pem ]; then
-	openssl genrsa -out $STORAGE_ROOT/ssl/ssl_private_key.pem 2048
+	openssl genrsa -out $STORAGE_ROOT/ssl/ssl_private_key.pem 4096
 	openssl req -new -key $STORAGE_ROOT/ssl/ssl_private_key.pem -out $STORAGE_ROOT/ssl/ssl_cert_sign_req.csr \
 	  -subj "/C=/ST=/L=/O=/CN=$PUBLIC_HOSTNAME"
 	openssl x509 -req -days 365 \
